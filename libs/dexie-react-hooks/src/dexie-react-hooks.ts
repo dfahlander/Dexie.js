@@ -1,6 +1,6 @@
 import {liveQuery} from "dexie";
 import {useSubscription} from "./use-subscription";
-import React from "react";
+import * as React from "react";
 
 export function useLiveQuery<T>(querier: ()=>Promise<T> | T, dependencies?: any[]): T | undefined;
 export function useLiveQuery<T,TDefault> (querier: ()=>Promise<T> | T, dependencies: any[], defaultResult: TDefault) : T | TDefault;

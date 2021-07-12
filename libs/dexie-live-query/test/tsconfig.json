@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "lib": ["es2015", "dom"],
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "../tools/tmp/",
+    "sourceMap": true,
+    "rootDir": "..",
+    "allowJs": true
+  },
+  "files": [
+    "../src/index.ts",
+    "index.js"
+  ]
+}

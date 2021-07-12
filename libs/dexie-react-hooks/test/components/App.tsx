@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { db } from "../db";
 import { ErrorBoundary } from "./ErrorBoundrary";
 import { ItemListComponent } from "./ItemListComponent";
 import { ItemLoaderComponent } from "./ItemLoaderComponent";
 
 export function App() {
-  const [currentId, setCurrentId] = useState(1);
+  const [currentId, setCurrentId] = React.useState(1);
   return <ErrorBoundary>
     <div id="list">
       <h2>All items</h2>

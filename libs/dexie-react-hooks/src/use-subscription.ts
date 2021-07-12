@@ -11,7 +11,7 @@
  * 
  */
 
-import React from 'react';
+import * as React from 'react';
 const {useDebugValue, useEffect, useState} = React;
 
 // Hook used for safely managing subscriptions in concurrent mode.

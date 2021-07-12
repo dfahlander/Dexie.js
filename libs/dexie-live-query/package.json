@@ -1,0 +1,44 @@
+{
+  "name": "dexie-live-query",
+  "version": "1.0.0",
+  "description": "Observe IndexedDB by turning Promise-returning functions into Observables.",
+  "main": "dist/dexie-live-query.js",
+  "module": "dist/dexie-live-query.mjs",
+  "scripts": {
+    "build": "just-build",
+    "test": "echo This package is tested in Dexie.js test suite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfahlander/Dexie.js.git"
+  },
+  "keywords": [
+    "observables",
+    "reactive",
+    "indexeddb"
+  ],
+  "author": "david@dexie.org",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dfahlander/Dexie.js/issues"
+  },
+  "homepage": "https://github.com/dfahlander/Dexie.js#readme",
+  "dependencies": {
+    "dexie": "file:../..",
+    "rxjs": "^6.0.0"
+  },
+  "just-build": {
+    "default": [
+      "just-build dexie",
+      "rollup -c rollup.config.js",
+      "tsc --emitDeclarationOnly"
+    ],
+    "run-tests": [
+      "karma start test/karma.conf.js --single-run"
+    ],
+    "dexie": [
+      "cd ../..",
+      "npm run build"
+    ]
+  }
+}

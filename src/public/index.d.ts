@@ -23,6 +23,7 @@ import { Table } from './types/table';
 import { Collection } from './types/collection';
 import { PromiseExtended } from './types/promise-extended';
 import { Observable } from './types/observable';
+export { DexiePromiseConstructor } from '../helpers/promise';
 import { IntervalTree, RangeSetConstructor } from './types/rangeset';
 
 // Alias of Table and Collection in order to be able to refer them from module below...
@@ -55,6 +56,7 @@ export function rangesOverlap(
   rangeSet2: IntervalTree
 ): boolean;
 declare var RangeSet: RangeSetConstructor;
+
 /** Exporting 'Dexie' as the default export.
  **/
 export default Dexie;

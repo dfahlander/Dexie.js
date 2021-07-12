@@ -1,6 +1,6 @@
 import { Dexie } from './classes/dexie';
 import { DexieConstructor } from './public/types/dexie-constructor';
-import { DexiePromise } from './helpers/promise';
+import { DexiePromise, DexiePromiseConstructor } from './helpers/promise';
 import { mapError } from './errors';
 import * as Debug from './helpers/debug';
 import { dexieStackFrameFilter } from './globals/constants';
@@ -22,4 +22,5 @@ Debug.setDebug(Debug.debug, dexieStackFrameFilter);
 
 export { RangeSet, mergeRanges, rangesOverlap } from "./helpers/rangeset";
 export { Dexie, liveQuery }; // Comply with public/index.d.ts.
+
 export default Dexie;

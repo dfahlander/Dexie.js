@@ -94,6 +94,9 @@
   },
   "homepage": "https://dexie.org",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
     "dts-bundle-generator": "^5.7.0",
     "just-build": "^0.9.19",
     "karma": "^6.1.1",

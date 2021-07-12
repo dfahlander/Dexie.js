@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { module, test, equiv, assert } from "qunit";
 import { db } from "./db";
 import { BinarySemaphore } from "./utils/BinarySemaphore";

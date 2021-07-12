@@ -14,10 +14,12 @@ export interface DexiePromise<T=any> extends PromiseExtended<T> {
 
 export interface DexiePromiseConstructor extends PromiseExtendedConstructor {
   new <T>(executor: (resolve: (value?: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void): DexiePromise<T>;
-  follow (fn: Function, zoneProps?): DexiePromise<void>;
-  PSD,
-  newPSD<R> (zoneProps, fn: (...args)=>R, ...args) : R;
-  usePSD<R> (psd, fn: (...args)=>R, ...args): R;
+  follow (fn: Function, zoneProps?: any): DexiePromise<void>;
+  PSD: any,
+  iea(): void;
+  dea(): void;
+  newPSD<R> (fn: (...args: any[])=>R, zoneProps?: any, ...args: any[]) : R;
+  usePSD<R> (psd: any, fn: (...args: any[])=>R, ...args: any[]): R;
   rejectionMapper: (e?: any) => Error;
 }
 

@@ -329,6 +329,10 @@ props (DexiePromise, {
     newPSD: newScope,
     
     usePSD: usePSD,
+
+    iea: incrementExpectedAwaits,
+
+    dea: decrementExpectedAwaits,
     
     scheduler: {
         get: () => asap,

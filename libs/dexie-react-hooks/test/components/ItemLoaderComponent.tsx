@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useLiveQuery } from "../../src";
 import { Item } from "../models/Item";
 import { ItemComponent } from "./ItemComponent";

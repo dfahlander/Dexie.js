@@ -1,10 +1,6 @@
-//import {readFileSync} from 'fs';
-//import path from 'path';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-
-//const version = require(path.resolve(__dirname, './package.json')).version;
 
 const ERRORS_TO_IGNORE = [
   "THIS_IS_UNDEFINED",
@@ -13,14 +9,17 @@ const ERRORS_TO_IGNORE = [
 export default {
   input: './src/index.ts',
   output: [{
-    file: 'dist/dexie-react-hooks.js',
+    file: 'dist/dexie-live-query.js',
     format: 'umd',
-    globals: {dexie: "Dexie", react: "React", "react-dom": "ReactDOM"},
-    name: 'DexieReactHooks',
-    sourcemap: true,
-    exports: 'named'
+    globals: {dexie: "Dexie", rxjs: "Rx"},
+    name: 'liveQuery',
+    sourcemap: true
+  },{
+    file: 'dist/dexie-live-query.mjs',
+    format: 'es',
+    sourcemap: true
   }],
-  external: ['dexie', 'react', 'react-dom'],
+  external: ['dexie', 'rxjs'],
   plugins: [
     typescript(),
     nodeResolve({
