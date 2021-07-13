@@ -684,9 +684,7 @@ export function newScope (fn, props, a1, a2) {
         allSettled: DexiePromise.allSettled,
         any: DexiePromise.any,
         resolve: DexiePromise.resolve,
-        reject: DexiePromise.reject,
-        nthen: getPatchedPromiseThen (globalEnv.nthen, psd), // native then
-        gthen: getPatchedPromiseThen (globalEnv.gthen, psd) // global then
+        reject: DexiePromise.reject
     } : {};
     if (props) extend(psd, props);
     
@@ -780,11 +778,6 @@ function switchToZone (targetZone, bEnteringZone) {
         // Swich environments (may be PSD-zone or the global zone. Both apply.)
         var targetEnv = targetZone.env;
 
-        // Change Promise.prototype.then for native and global Promise (they MAY differ on polyfilled environments, but both can be accessed)
-        // Must be done on each zone change because the patched method contains targetZone in its closure.
-        nativePromiseProto.then = targetEnv.nthen;
-        GlobalPromise.prototype.then = targetEnv.gthen;
-
         if (currentZone.global || targetZone.global) {
             // Leaving or entering global zone. It's time to patch / restore global Promise.
 
@@ -813,9 +806,7 @@ function snapShot () {
         allSettled: GlobalPromise.allSettled,
         any: GlobalPromise.any,
         resolve: GlobalPromise.resolve,
-        reject: GlobalPromise.reject,
-        nthen: nativePromiseProto.then,
-        gthen: GlobalPromise.prototype.then
+        reject: GlobalPromise.reject
     } : {};
 }
 
