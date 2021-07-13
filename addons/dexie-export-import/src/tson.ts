@@ -71,12 +71,15 @@ TSON.finalize = async (items?: any[]) => {
           const typeSpec = TSON.types[typeName];
           if (typeSpec && typeSpec.finalize) {
             const b = Dexie.getByKeyPath(item, arrayType ? "$." + keyPath : keyPath);
-            typeSpec.finalize(b, allChunks.slice(b.start, b.end));
+            typeSpec.finalize(b, allChunks.slice(b.data?.start, b.data?.end));
           }
         }
       }
     }
   }
   // Free up memory
-  blobsToAwait = [];
+  // Todo - this is the problematic one that causes the blobs to be reset everytime the `finalize` is
+  //  called, where the chunks slicing are happening, which causes the data slicing with the wrong indices.
+  //  need to figure out a different way to GC.
+  // blobsToAwait = [];
 }
